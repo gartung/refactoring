@@ -1,4 +1,4 @@
 #!/bin/bash
-for file in `find * -type f`;do sed -i.bak -f ./rename_headerincludes_nutools.sed $file;done
-for file in `find * -name CMakeLists.txt`;do sed -i.bak -f ./rename_libraryincludes_nutools.sed $file;done
-for file in `find * -name GNUmakefile`;do sed -i.bak -f ./rename_libraryincludes_nutools.sed $file;done
+for file in `find * -type f`;do sed -i.bak -f ./rename-headerincludes-nutools.sed $file;done
+for file in `find * -name CMakeLists.txt`;do sed -i.bak -f ./rename-libraryincludes-nutools.sed $file;done
+for file in `find * -name GNUmakefile -o -name \*.mk`;do sed -i.bak -f ./rename-libraryincludes-gmake-nutools.sed $file;done
