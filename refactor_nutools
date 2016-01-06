@@ -1,3 +1,4 @@
 #!/bin/bash
-for file in `find * -name CMakeLists.txt | xargs grep -w SimulationBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's![[:blank::]]SimulationBase\b! nusimdata_SimulationBase!g' $file; done
-for file in `find * -name GNUmakefile | xargs grep -w SimulationBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's![[:blank:]]SimulationBase! nusimdata_SimulationBase!g' $file; done
+for file in `find * -type f`;do sed -i.bak -f ./rename_headerincludes_nutools.sed $file;done
+for file in `find * -name CMakeLists.txt`;do sed -i.bak -f ./rename_libraryincludes_nutools.sed $file;done
+for file in `find * -name GNUmakefile`;do sed -i.bak -f ./rename_libraryincludes_nutools.sed $file;done
