@@ -1,21 +1,4 @@
 #!/bin/env bash
-for file in `grep -R "#include \"art/Utilities/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "art/Utilities/!#include "canvas/Utilities/!g' $file; done
-for file in `grep -R "#include \"art/Persistency/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "art/Persistency/!#include "canvas/Persistency/!g' $file; done
-for file in `grep -R "#include \"art/Persistency/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "art/Persistency/!#include "canvas/Persistency/!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_Common | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_Common!canvas_Persistency_Common!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_Common_dict | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_Common_dict!canvas_Persistency_Common_dict!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_Provenance | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_Provenance!canvas_Persistency_Provenance!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_StdDictionaries | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_StdDictionaries!canvas_Persistency_StdDictionaries!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_StdDictionaries_dict | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_StdDictionaries_dict!canvas_Persistency_StdDictionaries_dict!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_RootDB | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_RootDB!canvas_Persistency_RootDB!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_WrappedStdDictionaries | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_WrappedStdDictionaries!canvas_Persistency_WrappedStdDictionaries!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_WrappedStdDictionaries_dict | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_WrappedStdDictionaries_dict!canvas_Persistency_WrappedStdDictionaries_dict!g' $file; done
-for file in `find . -name classes*.def`;do sed -i.bak -e's!include=art/Persistency/!include="canvas/Persistency/!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Utilities | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Utilities!canvas_Utilities!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_PERSISTENCY_COMMON | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_PERSISTENCY_COMMON!CANVAS_PERSISTENCY_COMMON!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_PERSISTENCY_PROVENANCE | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_PERSISTENCY_PROVENANCE!CANVAS_PERSISTENCY_PROVENANCE!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_PERSISTENCY_ROOTDB | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_PERSISTENCY_ROOTDB!CANVAS_PERSISTENCY_ROOTDB!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_UTILITIES | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_UTILITIES!CANVAS_UTILITIES!g' $file; done
 for file in `grep -R "#include \"SimulationBase/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "SimulationBase/!#include "nusimdata/SimulationBase/!g' $file; done
 for file in `grep -R "#include \"Simulation/SimChannel.h" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "larsimlite/Simulation/SimChannel.h!#include "larsimlite/Simulation/SimChannel.h!g' $file; done
 for file in `grep -R "#include \"Simulation/SimPhotons.h" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "larsimlite/Simulation/SimPhotons.h!#include "larsimlite/Simulation/SimPhotons.h!g' $file; done
@@ -59,13 +42,12 @@ for file in `grep -R "#include \"Filters/" . | grep -e"^." | cut -d: -f1 | sort 
 for file in `grep -R "#include \"SpaceCharge/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "larevt/SpaceCharge/!#include "larevt/SpaceCharge/!g' $file; done
 for file in `grep -R "#include \"CalibrationDBI/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "larevt/CalibrationDBI/!#include "larevt/CalibrationDBI/!g' $file; done
 for file in `grep -R "#include \"CalData/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "larevt/CalData/!#include "larevt/CalData/!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w Geometry | cut -d: -f1 | sort -u`;do sed -i.bak -e's! Geometry! larcore_Geometry!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w SummaryData | cut -d: -f1 | sort -u`;do sed -i.bak -e's! SummaryData! larcorelite_SummaryData!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w Filters | cut -d: -f1 | sort -u`;do sed -i.bak -e's! Filters! larevt_Filters!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w RawData | cut -d: -f1 | sort -u`;do sed -i.bak -e's! RawData! lardatalite_RawData!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w RecoBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's! RecoBase! lardatalite_RecoBase!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w MCBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's! MCBase! lardatalite_MCBase!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w Utilities | cut -d: -f1 | sort -u`;do sed -i.bak -e's! Utilities! lardata_Utilities!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w SimulationBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's! SimulationBase! nusimdata_SimulationBase!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w Simulation | cut -d: -f1 | sort -u`;do sed -i.bak -e's! Simulation ! larsimlite_Simulation !g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w EventGenerator | cut -d: -f1 | sort -u`;do sed -i.bak -e's! EventGenerator ! larsim_EventGenerator !g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w Geometry | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bGeometry\b!\larcore_Geometry!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w SummaryData | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bSummaryData\b!larcorelite_SummaryData!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w Filters | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bFilters\b!larevt_Filters!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w RawData | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bRawData\b!lardatalite_RawData!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w RecoBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bRecoBase\b!lardatalite_RecoBase!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w MCBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bMCBase\b!lardatalite_MCBase!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w Utilities | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bUtilities\b!lardata_Utilities!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w Simulation | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bSimulation\b!larsimlite_Simulation!g' $file; done
+for file in `find . -name CMakeLists.txt | xargs grep -w EventGenerator | cut -d: -f1 | sort -u`;do sed -i.bak -e's!\bEventGenerator\b!larsim_EventGenerator!g' $file; done

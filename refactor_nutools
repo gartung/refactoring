@@ -1,0 +1,3 @@
+#!/bin/bash
+for file in `find * -name CMakeLists.txt | xargs grep -w SimulationBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's![[:blank::]]SimulationBase\b! nusimdata_SimulationBase!g' $file; done
+for file in `find * -name GNUmakefile | xargs grep -w SimulationBase | cut -d: -f1 | sort -u`;do sed -i.bak -e's![[:blank:]]SimulationBase! nusimdata_SimulationBase!g' $file; done
