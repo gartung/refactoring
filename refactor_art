@@ -1,4 +1,3 @@
 #!/bin/env bash
-for file in `find * -type f`;do sed -i.bak -f rename-headerincludes-art.sed $file;done
-for file in `find * -name CMakeLists.txt`; do sed -i.bak -f rename-libraryincludes-art.sed $file;done
-
+for file in `find * -type f`;do sed -i.bak -f ${SCRIPT_PATH}./rename-headerincludes-art.sed $file;done
+for file in `find * -name CMakeLists.txt`; do sed -i.bak -f ${SCRIPT_PATH}./rename-libraryincludes-art.sed $file;done
