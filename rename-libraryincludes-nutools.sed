@@ -1,4 +1,5 @@
 s/\bSimulationBase\b/nusimdata_SimulationBase/g
+s/\bSimulationBase_dict\b/nusimdata_SimulationBase_dict/g
 s/\bEventDisplayBase\b/nutools_EventDisplayBase/g
 s/\bEventDisplay\b/nutools_EventDisplay/g
 s/\bEventGeneratorBaseCRY\b/nutools_EventGeneratorBaseCRY/g

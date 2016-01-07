@@ -1,4 +1,5 @@
 s/-lSimulationBase\(\b\|$\)/-lnusimdata_SimulationBase/g
+s/-lSimulationBase_dict\(\b\|$\)/-lnusimdata_SimulationBase_dict/g
 s/-lColors_service\(\b\|$\)/-lnutools_Colors_service/g
 s/-lDBI_service\(\b\|$\)/-lnutools_DBI_service/g
 s/-lEventDisplayBase\(\b\|$\)/-lnutools_EventDisplayBase/g
