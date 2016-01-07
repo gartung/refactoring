@@ -1,18 +1,4 @@
 #!/bin/env bash
-for file in `grep -R "#include \"art/Utilities/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "art/Utilities/!#include "canvas/Utilities/!g' $file; done
-for file in `grep -R "#include \"art/Persistency/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "art/Persistency/!#include "canvas/Persistency/!g' $file; done
-for file in `grep -R "#include \"art/Persistency/" . | grep -e"^." | cut -d: -f1 | sort -u`;do sed -i.bak -e's!#include "art/Persistency/!#include "canvas/Persistency/!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_Common | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_Common!canvas_Persistency_Common!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_Common_dict | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_Common_dict!canvas_Persistency_Common_dict!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_Provenance | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_Provenance!canvas_Persistency_Provenance!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_StdDictionaries | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_StdDictionaries!canvas_Persistency_StdDictionaries!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_StdDictionaries_dict | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_StdDictionaries_dict!canvas_Persistency_StdDictionaries_dict!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_RootDB | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_RootDB!canvas_Persistency_RootDB!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_WrappedStdDictionaries | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_WrappedStdDictionaries!canvas_Persistency_WrappedStdDictionaries!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Persistency_WrappedStdDictionaries_dict | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Persistency_WrappedStdDictionaries_dict!canvas_Persistency_WrappedStdDictionaries_dict!g' $file; done
-for file in `find . -name classes*.def`;do sed -i.bak -e's!include=art/Persistency/!include="canvas/Persistency/!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w art_Utilities | cut -d: -f1 | sort -u`;do sed -i.bak -e's!art_Utilities!canvas_Utilities!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_PERSISTENCY_COMMON | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_PERSISTENCY_COMMON!CANVAS_PERSISTENCY_COMMON!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_PERSISTENCY_PROVENANCE | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_PERSISTENCY_PROVENANCE!CANVAS_PERSISTENCY_PROVENANCE!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_PERSISTENCY_ROOTDB | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_PERSISTENCY_ROOTDB!CANVAS_PERSISTENCY_ROOTDB!g' $file; done
-for file in `find . -name CMakeLists.txt | xargs grep -w ART_UTILITIES | cut -d: -f1 | sort -u`;do sed -i.bak -e's!ART_UTILITIES!CANVAS_UTILITIES!g' $file; done
+for file in `find * -type f`;do sed -i.bak -f rename-headerincludes-art.sed $file;done
+for file in `find * -name CMakeLists.txt`; do sed -i.bak -f rename-libraryincludes-art.sed $file;done
+
