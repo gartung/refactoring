@@ -1,4 +1,12 @@
 #!/bin/bash
-for file in `find * -type f`;do sed -i.bak -f ${SCRIPT_PATH}./rename-headerincludes-nutools.sed $file;done
-for file in `find * -name CMakeLists.txt`;do sed -i.bak -f ${SCRIPT_PATH}./rename-libraryincludes-nutools.sed $file;done
-for file in `find * -name GNUmakefile -o -name \*.mk`;do sed -i.bak -f ${SCRIPT_PATH}./rename-libraryincludes-gmake-nutools.sed $file;done
+TOP=${1:-nutools}
+echo "Fixing files in directory $TOP"
+for file in `find $TOP \( -type d \( -name SoftRelTools -o -name man -o -name bin -o -name tmp -o -name job -o -name .git -o \
+    -name .svn -o -name CVS -o -name ups \) -prune \) -o -type f \! \( -name '*_dict.cc' -o -name '*_map.cc' -o -name '*~' \
+    -o -name '*.bak' -o -name '*.orig' -o -name '*.new' -o -name '*.gdml' -o -name '*.py' -o -name '*.sh' -o -name '*.o' \
+    -o -name '*.so' -o -name '*.os' -o -name '*.root' -o -name 'SConscript' \) -print`;do 
+    perl -wapi\~ -f fix-header-locs-nutools.pl "${F}" >/dev/null 2>&1 && rm -f "${F}~"
+done
+for file in `find $TOP -name CMakeLists.txt`;do sed -i~ -f rename-libraryincludes-nutools.sed $file;done
+for file in `find $TOP -name CMakeLists.txt | grep nutools`;do sed -i~ -e's/BASENAME_ONLY//g' $file;done
+for file in `find $TOP -name GNUmakefile -o -name \*.mk`;do sed -i~ -f rename-libraryincludes-gmake-nutools.sed $file;done

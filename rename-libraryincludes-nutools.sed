@@ -12,6 +12,6 @@ s/\bNuReweightArt\b/nutools_NuReweightArt/g
 s/\bNuReweight\b/nutools_NuReweight/g
 s/\bMagneticField_service\b/nutools_MagneticField_MagneticField_service/g
 s/nutools_NuReweight.cxx/NuReweight.cxx/g
-s/BASENAME_ONLY//g
 s/add_subdirectory (nutools_/add_subdirectory (/g
+s/add_subdirectory (nutsimdata_/add_subdirectory (/g
 s/simple_plugin( nutools_/simple_plugin( /g
