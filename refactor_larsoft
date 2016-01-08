@@ -1,3 +1,4 @@
 #!/bin/env bash
-for file in `find * -type f`;do sed -i.bak -f ${SCRIPT_PATH}./rename-headerincludes-larsoft.sed  $file; done
-for file in `find * -name CMakeLists.txt `;do sed -i.bak -f ${SCRIPT_PATH}./rename-libraryincludes.sed $file; done
+TOP=${1:-junk}
+find $TOP -type f -print0 | while IFS= read -rd $'\0' f ;do sed -i~ -f rename-headerincludes-larsoft.sed  $file; done
+for file in `find $TOP -name CMakeLists.txt `;do sed -i~ -f rename-libraryincludes.sed $file; done

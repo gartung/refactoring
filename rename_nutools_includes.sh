@@ -22,7 +22,7 @@ if (( $? != 4 )); then
   exit 1
 fi
 
-TEMP=`getopt -n "$prog" --long no-fix-pset -- "${@}"`
+TEMP=`getopt -n "$prog" -o --long one-file: -- "${@}"`
 eval set -- "$TEMP"
 while true; do
   case $1 in
@@ -45,6 +45,9 @@ TOP=${1:-nutools}
 
 # ======================================================================
 # Run scripts to update
+
+TMP=`mktemp -t update_sources.sh.XXXXXX`
+trap "rm $TMP* 2>/dev/null" EXIT
 
 if [[ -n "${file}" ]]; then
   if ! [[ -r "${file}" ]]; then
