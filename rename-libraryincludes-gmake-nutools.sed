@@ -15,5 +15,5 @@ s/-lNuReweightArt\(\b\|$\)/-lnutools_NuReweightArt/g
 s/-lNuReweight\(\b\|$\)/-lnutools_NuReweight/g
 s/-lReweightAna_module\(\b\|$\)/-lnutools_ReweightAna_module/g
 s/-lScanOptions_service\(\b\|$\)/-lnutools_ScanOptions_service/g
-s/-I$(NUTOOLS_INC)/-I$(NUTOOLS_INC) -I$(NUSIMDATA_INC)/g
-s/-L$(NUTOOLS_LIB)/-L$(NUTOOLS_LIB) -L$(NUSIMDATA_LIB)/g
+s/-I\$(NUTOOLS_INC)/-I\$(NUTOOLS_INC) -I\$(NUSIMDATA_INC)/g
+s/-L\$(NUTOOLS_LIB)/-L\$(NUTOOLS_LIB) -L\$(NUSIMDATA_LIB)/g
