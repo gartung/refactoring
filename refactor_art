@@ -1,4 +1,12 @@
 #!/bin/env bash
 TOP=${1:-junk}
-find $TOP -type f -print 0 | while IFS= read -rd $'\0' file ;do sed -i~ rename-headerincludes-art.sed $file;done
+#find $TOP -type f -print 0 | while IFS= read -rd $'\0' file ;do sed -i~ rename-headerincludes-art.sed $file;done
+#for file in `find $TOP -name CMakeLists.txt`;do sed -i~ -f rename-libraryincludes-art.sed $file;done
+echo "Fixing files in directory $TOP"
+find $TOP \( -type d \( -name SoftRelTools -o -name man -o -name bin -o -name tmp -o -name job -o -name .git -o \
+    -name .svn -o -name CVS -o -name ups \) -prune \) -o -type f \! \( -name '*_dict.cc' -o -name '*_map.cc' -o -name '*~' \
+    -o -name '*.bak' -o -name '*.orig' -o -name '*.new' -o -name '*.gdml' -o -name '*.py' -o -name '*.sh' -o -name '*.o' \
+    -o -name '*.so' -o -name '*.os' -o -name '*.root' -o -name 'SConscript' -o -name '*.pdf' -o -name '*.html' \) -print0 \
+    | while IFS= read -rd $'\0' F ;do \
+    perl -wapi\~ -f fix-header-locs-art.pl "${F}" >/dev/null 2>&1 && rm -f "${F}~" ;done
 for file in `find $TOP -name CMakeLists.txt`;do sed -i~ -f rename-libraryincludes-art.sed $file;done
