@@ -2,6 +2,8 @@ use strict;
 
 use vars qw(%inc_translations);
 BEGIN { %inc_translations = (
+"art/Framework/IO/Root/RefCoreStreamer.h" => "canvas/Persistency/Common/RefCoreStreamer.h",
+"art/Framework/IO/Root/rootNames.h" => "canvas/Persistency/Provenance/rootNames.h",
 "art/Persistency/CLHEPDictionaries/classes.h" => "canvas/Persistency/CLHEPDictionaries/classes.h",
 "art/Persistency/CetlibDictionaries/classes.h" => "canvas/Persistency/CetlibDictionaries/classes.h",
 "art/Persistency/Common/Assns.h" => "canvas/Persistency/Common/Assns.h",
@@ -25,6 +27,7 @@ BEGIN { %inc_translations = (
 "art/Persistency/Common/RefCore.h" => "canvas/Persistency/Common/RefCore.h",
 "art/Persistency/Common/TriggerResults.h" => "canvas/Persistency/Common/TriggerResults.h",
 "art/Persistency/Common/Wrapper.h" => "canvas/Persistency/Common/Wrapper.h",
+"art/Persistency/Common/classes.h" => "canvas/Persistency/Common/classes.h",
 "art/Persistency/Common/debugging_allocator.h" => "canvas/Persistency/Common/debugging_allocator.h",
 "art/Persistency/Common/detail/maybeCastObj.h" => "canvas/Persistency/Common/detail/maybeCastObj.h",
 "art/Persistency/Common/detail/setPtrVectorBaseStreamer.h" => "canvas/Persistency/Common/detail/setPtrVectorBaseStreamer.h",
@@ -91,6 +94,7 @@ BEGIN { %inc_translations = (
 "art/Persistency/Provenance/classes.h" => "canvas/Persistency/Provenance/classes.h",
 "art/Persistency/Provenance/detail/branchNameComponentChecking.h" => "canvas/Persistency/Provenance/detail/branchNameComponentChecking.h",
 "art/Persistency/Provenance/detail/type_aliases.h" => "canvas/Persistency/Provenance/detail/type_aliases.h",
+"art/Persistency/Provenance/ParameterSetID.h" => "canvas/Persistency/Provenance/ParameterSetID.h",
 "art/Persistency/RootDB/MetaDataAccess.h" => "canvas/Persistency/RootDB/MetaDataAccess.h",
 "art/Persistency/RootDB/SQLErrMsg.h" => "canvas/Persistency/RootDB/SQLErrMsg.h",
 "art/Persistency/RootDB/SQLite3Wrapper.h" => "canvas/Persistency/RootDB/SQLite3Wrapper.h",
@@ -116,6 +120,7 @@ BEGIN { %inc_translations = (
 "art/Utilities/PluginSuffixes.h" => "canvas/Utilities/PluginSuffixes.h",
 "art/Utilities/RegexMatch.h" => "canvas/Utilities/RegexMatch.h",
 "art/Utilities/RootHandlers.h" => "canvas/Utilities/RootHandlers.h",
+"art/Utilities/SAMMetadata.h" => "canvas/Utilities/SAMMetadata.h",
 "art/Utilities/ScheduleID.h" => "canvas/Utilities/ScheduleID.h",
 "art/Utilities/TestHelper.h" => "canvas/Utilities/TestHelper.h",
 "art/Utilities/ThreadSafeIndexedRegistry.h" => "canvas/Utilities/ThreadSafeIndexedRegistry.h",
@@ -131,18 +136,10 @@ BEGIN { %inc_translations = (
 "art/Utilities/fwd.h" => "canvas/Utilities/fwd.h",
 "art/Utilities/parent_path.h" => "canvas/Utilities/parent_path.h",
 "art/Utilities/pointersEqual.h" => "canvas/Utilities/pointersEqual.h",
+"art/Utilities/quiet_unit_test.hpp" => "canvas/Utilities/quiet_unit_test.hpp",
 "art/Utilities/uniform_type_name.h" => "canvas/Utilities/uniform_type_name.h",
-"art/Utilities/unique_filename.h" => "canvas/Utilities/unique_filename.h",
-"testtest/Persistency/Common/IntValues.h" => "testcanvas/Persistency/Common/IntValues.h",
-"testtest/Persistency/Common/SimpleEDProductGetter.h" => "testcanvas/Persistency/Common/SimpleEDProductGetter.h",
-"testtest/Persistency/Common/TestHandle.h" => "testcanvas/Persistency/Common/TestHandle.h",
-"testtest/Persistency/Provenance/RootClassMapping_t.h" => "testcanvas/Persistency/Provenance/RootClassMapping_t.h",
-"testtest/Persistency/Provenance/classes.h" => "testcanvas/Persistency/Provenance/classes.h",
-"testtest/Utilities/TypeNameBranchName_t.h" => "testcanvas/Utilities/TypeNameBranchName_t.h",
-"testtest/Utilities/classes.h" => "testcanvas/Utilities/classes.h",
-"art/Framework/IO/Root/rootNames.h" => "canvas/Persistency/Provenance/rootNames.h"
+"art/Utilities/unique_filename.h" => "canvas/Utilities/unique_filename.h"
                             );
-
       }
 foreach my $inc (sort keys %inc_translations) {
   s&^(\s*#include\s+["<])\Q$inc\E([">].*)$&${1}$inc_translations{$inc}${2}& and last;
