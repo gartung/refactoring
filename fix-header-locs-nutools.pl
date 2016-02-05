@@ -2,13 +2,13 @@ use strict;
 
 use vars qw(%inc_translations);
 BEGIN { %inc_translations = (
-		"SimulationBase/GTruth.h" => "nusimdata/SimulationBase/GTruth.h",
-		"SimulationBase/MCFlux.h" => "nusimdata/SimulationBase/MCFlux.h",
-		"SimulationBase/MCNeutrino.h" => "nusimdata/SimulationBase/MCNeutrino.h",
-		"SimulationBase/MCParticle.h" => "nusimdata/SimulationBase/MCParticle.h",
-		"SimulationBase/MCTrajectory.h" => "nusimdata/SimulationBase/MCTrajectory.h",
-		"SimulationBase/MCTruth.h" => "nusimdata/SimulationBase/MCTruth.h",
-		"SimulationBase/classes.h" => "nusimdata/SimulationBase/classes.h",
+		"SimulationBase/GTruth.h" => "nusimdata/GTruth.h",
+		"SimulationBase/MCFlux.h" => "nusimdata/MCFlux.h",
+		"SimulationBase/MCNeutrino.h" => "nusimdata/MCNeutrino.h",
+		"SimulationBase/MCParticle.h" => "nusimdata/MCParticle.h",
+		"SimulationBase/MCTrajectory.h" => "nusimdata/MCTrajectory.h",
+		"SimulationBase/MCTruth.h" => "nusimdata/MCTruth.h",
+		"SimulationBase/classes.h" => "nusimdata/classes.h",
 		"EventDisplayBase/ButtonBar.h" => "nutools/EventDisplayBase/ButtonBar.h",
 		"EventDisplayBase/Canvas.h" => "nutools/EventDisplayBase/Canvas.h",
 		"EventDisplayBase/ColorScale.h" => "nutools/EventDisplayBase/ColorScale.h",

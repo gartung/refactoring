@@ -1,9 +1,0 @@
-s!\bEventGenerator\b!larsim_EventGenerator!g
-s!\bFilters\b!larevt_Filters!g
-s!\bGeometry\b!\larcore_Geometry!g
-s!\bMCBase\b!lardatalite_MCBase!g
-s!\bRawData\b!lardatalite_RawData!g
-s!\bRecoBase\b!lardatalite_RecoBase!g
-s!\bSimulation\b!larsimlite_Simulation!g
-s!\bSummaryData\b!larcorelite_SummaryData!g
-s!\bUtilities\b!lardata_Utilities!g
